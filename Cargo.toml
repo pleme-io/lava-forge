@@ -1,0 +1,28 @@
+[package]
+authors = ["pleme-io"]
+description = "Tatara-lisp source generator for lava providers. Consumes terraform providers schema JSON and emits typed (deflava-resource ...) forms. Same upstream that pangea-forge consumes; targets the tatara-lisp surface instead of Ruby."
+edition = "2024"
+license = "MIT"
+name = "lava-forge"
+readme = "README.md"
+repository = "https://github.com/pleme-io/lava-forge"
+version = "0.1.0"
+
+[lib]
+name = "lava_forge"
+path = "src/lib.rs"
+
+[[bin]]
+name = "lava-forge"
+path = "src/main.rs"
+
+[lints.clippy]
+pedantic = "warn"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+indexmap = { version = "2", features = ["serde"] }
+clap = { version = "4", features = ["derive"] }
+anyhow = "1"
