@@ -453,7 +453,7 @@ rec {
       };
       "lava-forge" = rec {
         crateName = "lava-forge";
-        version = "0.1.2";
+        version = "0.1.3";
         edition = "2024";
         crateBin = [
           {
