@@ -195,7 +195,10 @@ mod tests {
         }"#;
         let parsed: ProviderSchemasFile = serde_json::from_str(json).unwrap();
         assert_eq!(parsed.format_version, "1.0");
-        let aws = parsed.provider_schemas.get("registry.terraform.io/hashicorp/aws").unwrap();
+        let aws = parsed
+            .provider_schemas
+            .get("registry.terraform.io/hashicorp/aws")
+            .unwrap();
         let vpc = aws.resource_schemas.get("aws_vpc").unwrap();
         assert_eq!(vpc.description.as_deref(), Some("Provides a VPC resource."));
         let cidr = vpc.attributes.get("cidr_block").unwrap();

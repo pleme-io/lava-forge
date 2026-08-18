@@ -67,7 +67,9 @@ fn write_list(out: &mut String, items: &[SExpr], indent: usize) {
         return;
     }
     // Short-form: one line if all leaf children + body fits ≤ 80 chars.
-    let all_leaves = items.iter().all(|e| !matches!(e, SExpr::List(inner) if !inner.is_empty()));
+    let all_leaves = items
+        .iter()
+        .all(|e| !matches!(e, SExpr::List(inner) if !inner.is_empty()));
     if all_leaves {
         let mut probe = String::from("(");
         for (i, e) in items.iter().enumerate() {
